@@ -16,6 +16,7 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
+    //查询全部产品
     @RequestMapping("/findAll.do")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
@@ -23,7 +24,15 @@ public class ProductController {
         //对应product-list.jsp中的 productList变量
         mv.addObject("productList",products);
         //product-list.jsp
-        mv.setViewName("product-list");
+        mv.setViewName("product-list1");
         return mv;
+    }
+
+    //添加产品
+    @RequestMapping("/save.do")
+    public String save(Product product) throws Exception{
+        productService.save(product);
+        //添加操作完成后，刷新列表
+        return "redirect:findAll.do";
     }
 }

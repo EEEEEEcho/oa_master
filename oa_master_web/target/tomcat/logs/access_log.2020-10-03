@@ -1,4 +1,0 @@
-0:0:0:0:0:0:0:1 - - [03/Oct/2020:18:41:31 +0800] "GET /oa_master_web HTTP/1.1" 302 - http-bio-8888-exec-1 0
-0:0:0:0:0:0:0:1 - - [03/Oct/2020:18:41:32 +0800] "GET /oa_master_web/ HTTP/1.1" 200 495 http-bio-8888-exec-3 620
-0:0:0:0:0:0:0:1 - - [03/Oct/2020:18:41:34 +0800] "GET /oa_master_web/product/findAll.do HTTP/1.1" 200 21866 http-bio-8888-exec-4 986
-0:0:0:0:0:0:0:1 - - [03/Oct/2020:18:53:29 +0800] "GET /oa_master_web/product/findAll.do HTTP/1.1" 200 21866 http-bio-8888-exec-6 14

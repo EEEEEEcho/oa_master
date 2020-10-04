@@ -16,6 +16,7 @@
     比如我的项目名称是demo1在浏览器中输入为http://localhost:8080/demo1
     /a.jsp $//{pageContext.request.contextPath}或<//%=request.getContextPath()%>取出来的就是/demo1,
     而"/"代表的含义就是http://localhost:8080-->
-    <a href="${pageContext.request.contextPath}/product/findAll.do">查询所有商品信息</a>
+<%--    <a href="${pageContext.request.contextPath}/product/findAll.do">查询所有商品信息</a>--%>
+    <jsp:forward page="pages/main.jsp"></jsp:forward>
 </body>
 </html>

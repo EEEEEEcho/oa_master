@@ -1,1 +1,4 @@
 com\echo\ssm\domain\Product.class
+com\echo\ssm\domain\Traveller.class
+com\echo\ssm\domain\Member.class
+com\echo\ssm\domain\Order.class

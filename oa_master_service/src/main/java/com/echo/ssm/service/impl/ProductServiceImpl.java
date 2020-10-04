@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-@Transactional
+@Transactional      //一定要有Transactional,因为存储涉及到事务了
 public class ProductServiceImpl implements IProductService {
 
     @Autowired
@@ -17,5 +17,10 @@ public class ProductServiceImpl implements IProductService {
 
     public List<Product> findAll() throws Exception {
         return productDao.findAll();
+    }
+
+    @Override
+    public void save(Product product) throws Exception{
+        productDao.save(product);
     }
 }

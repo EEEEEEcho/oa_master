@@ -1,2 +1,4 @@
+com\echo\ssm\service\impl\OrderServiceImpl.class
+com\echo\ssm\service\IOrderService.class
 com\echo\ssm\service\impl\ProductServiceImpl.class
 com\echo\ssm\service\IProductService.class
