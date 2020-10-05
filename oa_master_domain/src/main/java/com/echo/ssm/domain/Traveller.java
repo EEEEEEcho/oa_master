@@ -44,6 +44,7 @@ public class Traveller {
     }
 
     public Integer getCredentialsType() {
+
         return credentialsType;
     }
 
@@ -52,6 +53,17 @@ public class Traveller {
     }
 
     public String getCredentialsTypeStr() {
+        if(credentialsType != null){
+            if(credentialsType == 0){
+                this.credentialsTypeStr = "身份证";
+            }
+            else if(credentialsType == 1){
+                this.credentialsTypeStr = "护照";
+            }
+            else if(credentialsType == 2){
+                this.credentialsTypeStr = "军官证";
+            }
+        }
         return credentialsTypeStr;
     }
 
@@ -76,6 +88,14 @@ public class Traveller {
     }
 
     public String getTravellerTypeStr() {
+        if(travellerType != null){
+            if(travellerType == 0){
+                this.travellerTypeStr = "成人";
+            }
+            else if(travellerType == 1){
+                this.travellerTypeStr = "儿童";
+            }
+        }
         return travellerTypeStr;
     }
 

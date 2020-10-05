@@ -23,4 +23,9 @@ public class OrderServiceImpl implements IOrderService {
         //pageHelper在使用时，只需要引入依赖，配置插件，然后在真正查询时，执行上面那句代码
         return iOrderDao.findAll();
     }
+
+    @Override
+    public Order findById(String ordersId) throws Exception {
+        return iOrderDao.findById(ordersId);
+    }
 }
