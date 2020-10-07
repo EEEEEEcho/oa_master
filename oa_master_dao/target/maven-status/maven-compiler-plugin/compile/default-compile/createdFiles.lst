@@ -1,3 +1,4 @@
+com\echo\ssm\dao\IUserDao.class
 com\echo\ssm\dao\IMemberDao.class
 com\echo\ssm\dao\IOrderDao.class
 com\echo\ssm\dao\ITravellerDao.class
