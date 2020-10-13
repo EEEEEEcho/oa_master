@@ -1,6 +1,7 @@
 com\echo\ssm\dao\IUserDao.class
-com\echo\ssm\dao\IMemberDao.class
 com\echo\ssm\dao\IOrderDao.class
 com\echo\ssm\dao\IRoleDao.class
 com\echo\ssm\dao\ITravellerDao.class
+com\echo\ssm\dao\IPermissionDao.class
+com\echo\ssm\dao\IMemberDao.class
 com\echo\ssm\dao\IProductDao.class

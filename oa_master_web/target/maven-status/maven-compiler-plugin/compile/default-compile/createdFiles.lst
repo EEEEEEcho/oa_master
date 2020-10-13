@@ -1,2 +1,6 @@
+com\echo\ssm\controller\PermissionController.class
+com\echo\ssm\controller\UserController.class
+com\echo\ssm\controller\Test.class
+com\echo\ssm\controller\RoleController.class
 com\echo\ssm\controller\OrderController.class
 com\echo\ssm\controller\ProductController.class

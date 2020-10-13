@@ -1,6 +1,10 @@
-com\echo\ssm\service\impl\OrderServiceImpl.class
-com\echo\ssm\service\IOrderService.class
+com\echo\ssm\service\IRoleService.class
 com\echo\ssm\service\impl\ProductServiceImpl.class
 com\echo\ssm\service\IProductService.class
-com\echo\ssm\service\impl\UserServiceImpl.class
 com\echo\ssm\service\IUserService.class
+com\echo\ssm\service\impl\OrderServiceImpl.class
+com\echo\ssm\service\IOrderService.class
+com\echo\ssm\service\impl\RoleServiceImpl.class
+com\echo\ssm\service\impl\PermissionServiceImpl.class
+com\echo\ssm\service\impl\UserServiceImpl.class
+com\echo\ssm\service\IPremissionService.class

@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,8 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private IUserDao iUserDao;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -33,7 +36,7 @@ public class UserServiceImpl implements IUserService {
         //处理自己的User对象，将其封装成Security自定义的实现了UserDetails接口的User
         //密码不做加密处理时，需要添加{noop}前缀
         //User user = new User(userInfo.getUsername(),"{noop}" + userInfo.getPassword(),getAuthority(userInfo.getRoles()));
-        User user = new User(userInfo.getUsername(),"{noop}" + userInfo.getPassword(),userInfo.getStatus() == 0 ? false : true,true,true,true,getAuthority(userInfo.getRoles()));
+        User user = new User(userInfo.getUsername(),userInfo.getPassword(),userInfo.getStatus() == 0 ? false : true,true,true,true,getAuthority(userInfo.getRoles()));
         return user;
     }
 
@@ -44,5 +47,23 @@ public class UserServiceImpl implements IUserService {
             list.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleName()));
         }
         return list;
+    }
+
+    @Override
+    public List<UserInfo> findAll() throws Exception {
+        List<UserInfo> userInfos = iUserDao.findAll();
+        //System.out.println(userInfos);
+        return userInfos;
+    }
+
+    @Override
+    public void save(UserInfo userInfo) {
+        userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
+        iUserDao.save(userInfo);
+    }
+
+    @Override
+    public UserInfo findByUserId(String id) {
+        return iUserDao.findByUserId(id);
     }
 }

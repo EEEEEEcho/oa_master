@@ -62,6 +62,12 @@ public class UserInfo {
     }
 
     public String getStatusStr() {
+        if(status == 0){
+            statusStr = "未开启";
+        }
+        else if(status == 1){
+            statusStr = "已开启";
+        }
         return statusStr;
     }
 
