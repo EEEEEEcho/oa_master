@@ -1,6 +1,7 @@
 package com.echo.ssm.service.impl;
 
 import com.echo.ssm.dao.IRoleDao;
+import com.echo.ssm.domain.Permission;
 import com.echo.ssm.domain.Role;
 import com.echo.ssm.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,22 @@ public class RoleServiceImpl implements IRoleService {
     @Override
     public void save(Role role) {
         iRoleDao.save(role);
+    }
+
+    @Override
+    public Role findRoleById(String roleId){
+        return iRoleDao.findRoleById(roleId);
+    }
+
+    @Override
+    public List<Permission> findOtherPermissionByRoleId(String roleId) {
+        return iRoleDao.findOtherPermissionByRoleId(roleId);
+    }
+
+    @Override
+    public void addPermissionToRole(String id, String[] permissionIds) {
+        for(String permissionId : permissionIds){
+            iRoleDao.addPermissionToRole(id,permissionId);
+        }
     }
 }

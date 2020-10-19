@@ -1,10 +1,13 @@
 package com.echo.ssm.controller;
 
+import com.echo.ssm.domain.Permission;
 import com.echo.ssm.domain.Role;
 import com.echo.ssm.service.IRoleService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -16,6 +19,21 @@ public class RoleController {
     @Autowired
     private IRoleService roleService;
 
+    @RequestMapping("/addPermissionToRole.do")
+    public String addPermissionToRole(@RequestParam(name = "id",required = true) String id,@RequestParam(name = "ids",required = true) String[] permissionIds){
+        roleService.addPermissionToRole(id,permissionIds);
+        return null;
+    }
+    @RequestMapping("/findRoleByIdAndAllPermission.do")
+    public ModelAndView findRoleByIdAndAllPermission(@RequestParam(name = "id",required = true) String roleId){
+        ModelAndView mv = new ModelAndView();
+        Role role = roleService.findRoleById(roleId);
+        List<Permission> permissionList = roleService.findOtherPermissionByRoleId(roleId);
+        mv.addObject("role",role);
+        mv.addObject("permissionList",permissionList);
+        mv.setViewName("role-permission-add");
+        return mv;
+    }
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView();
