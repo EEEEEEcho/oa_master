@@ -36,6 +36,6 @@ public interface IRoleDao {
             ")")
     List<Permission> findOtherPermissionByRoleId(String roleId);
 
-    @Insert("insert into role_permission(roleId,permissionId) values (#{id},#{permissionId})")
-    void addPermissionToRole(@Param("roleId") String id, @Param("permissionId") String permissionId);
+    @Insert("insert into role_permission(roleId,permissionId) values (#{roleId},#{permissionId})")
+    void addPermissionToRole(@Param("roleId") String roleId, @Param("permissionId") String permissionId);
 }

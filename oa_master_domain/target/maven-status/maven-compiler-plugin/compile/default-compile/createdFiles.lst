@@ -2,6 +2,7 @@ com\echo\ssm\domain\UserInfo.class
 com\echo\ssm\domain\Order.class
 com\echo\ssm\domain\Role.class
 com\echo\ssm\domain\Product.class
+com\echo\ssm\domain\SysLog.class
 com\echo\ssm\domain\Traveller.class
 com\echo\ssm\domain\Permission.class
 com\echo\ssm\domain\Member.class

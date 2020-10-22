@@ -14,7 +14,12 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
+    <!-- 这个监听器可以获取request对象从而获得url -->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+    
+    
     <!-- 前端控制器（加载classpath:springmvc.xml 服务器启动创建servlet） -->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
@@ -54,6 +59,11 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <error-page>
+        <!-- 凡是403的全部 跳转到403.jsp-->
+        <error-code>403</error-code>
+        <location>/403.jsp</location>
+    </error-page>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>

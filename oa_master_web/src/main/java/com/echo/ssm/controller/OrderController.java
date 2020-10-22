@@ -4,6 +4,7 @@ import com.echo.ssm.domain.Order;
 import com.echo.ssm.service.IOrderService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,8 +30,9 @@ public class OrderController {
 //        return modelAndView;
 //    }
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page,
-                                @RequestParam(name = "size",required = true,defaultValue = "4")int size) throws Exception{
+    @Secured("ROLE_ADMIN")  //与@RolesAllowed("ADMIN")不同，这种方法不能省略ROLE_前缀
+    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")Integer page,
+                                @RequestParam(name = "size",required = true,defaultValue = "4")Integer size) throws Exception{
         ModelAndView mv = new ModelAndView();
         List<Order> orderList = iOrderService.findAll(page,size);
         //pageinfo就是一个分页的bean

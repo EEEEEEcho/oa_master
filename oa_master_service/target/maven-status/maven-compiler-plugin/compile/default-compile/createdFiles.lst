@@ -1,4 +1,6 @@
 com\echo\ssm\service\IRoleService.class
+com\echo\ssm\service\ISysLogService.class
+com\echo\ssm\service\impl\SysLogServiceImpl.class
 com\echo\ssm\service\impl\ProductServiceImpl.class
 com\echo\ssm\service\IProductService.class
 com\echo\ssm\service\IUserService.class

@@ -37,9 +37,9 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
-    public void addPermissionToRole(String id, String[] permissionIds) {
+    public void addPermissionToRole(String roleId, String[] permissionIds) {
         for(String permissionId : permissionIds){
-            iRoleDao.addPermissionToRole(id,permissionId);
+            iRoleDao.addPermissionToRole(roleId,permissionId);
         }
     }
 }

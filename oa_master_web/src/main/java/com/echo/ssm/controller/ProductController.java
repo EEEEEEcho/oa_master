@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @Controller
@@ -18,6 +19,8 @@ public class ProductController {
 
     //查询全部产品
     @RequestMapping("/findAll.do")
+    //该注解是jsr250注解，用来进行权限控制， 在此处的意思是，只有权限是ADMIN的角色才可以访问 此方法
+    @RolesAllowed("ADMIN")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Product> products = productService.findAll();

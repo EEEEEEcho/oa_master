@@ -20,9 +20,9 @@ public class RoleController {
     private IRoleService roleService;
 
     @RequestMapping("/addPermissionToRole.do")
-    public String addPermissionToRole(@RequestParam(name = "id",required = true) String id,@RequestParam(name = "ids",required = true) String[] permissionIds){
-        roleService.addPermissionToRole(id,permissionIds);
-        return null;
+    public String addPermissionToRole(@RequestParam(name = "roleId",required = true) String roleId,@RequestParam(name = "ids",required = true) String[] permissionIds){
+        roleService.addPermissionToRole(roleId,permissionIds);
+        return "redirect:findAll.do";
     }
     @RequestMapping("/findRoleByIdAndAllPermission.do")
     public ModelAndView findRoleByIdAndAllPermission(@RequestParam(name = "id",required = true) String roleId){
