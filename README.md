@@ -1,0 +1,3 @@
+# oa_master
+黑马的权限管理系统，数据库已经包含在了项目中，本项目我使用MySQL替代了项目中使用到的Orcle.
+主要用的是SSM以及SpringSecurity，是复习SMM的很好的项目。
